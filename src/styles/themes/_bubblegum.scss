@@ -1,0 +1,23 @@
+// Paleta Bubblegum — tema padrão
+:root,
+[data-theme="bubblegum"] {
+  --color-bg-window: #1a1a1a;
+  --color-bg-white: #f7e4ed;
+
+  --color-primary: #cdb4db;
+  --color-secondary: #ffc8dd;
+  --color-tertiary: #bde0fe;
+  --color-quaternary: #a2d2ff;
+  --color-quinary: #ffafcc;
+
+  --color-text: #f2f2f2;
+  --color-text-muted: #a0a0a0;
+  --color-text-highlight: #000000;
+
+  --color-border: #3d3d3d;
+  --shadow-window: 0 8px 24px rgba(0, 0, 0, 0.856);
+
+  --icon-radius: 6px;
+  --icon-inactive-opacity: 0.55;
+  --icon-hover-opacity: 0.85;
+}

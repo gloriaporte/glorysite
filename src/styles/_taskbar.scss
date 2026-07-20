@@ -1,0 +1,109 @@
+@use "./variables" as *;
+
+:root,
+[data-theme="bubblegum"] {
+  --taskbar-height: 3rem;
+}
+
+.taskbar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  height: var(--taskbar-height);
+  padding: 0 0.75rem;
+  background: color-mix(in srgb, var(--color-quinary) 88%, transparent);
+  border-top: 1px solid $border;
+  backdrop-filter: blur(10px);
+
+  &__start {
+    display: inline-flex;
+    align-items: center;
+    height: 2.25rem;
+    padding: 0 1rem;
+    border: 1px solid transparent;
+    border-radius: calc(var(--icon-radius) + 2px);
+    background: transparent;
+    color: $text;
+    font: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    cursor: pointer;
+    transition:
+      background $transition,
+      border-color $transition,
+      color $transition;
+
+    &:hover {
+      background: color-mix(in srgb, var(--color-primary) 25%, transparent);
+      border-color: $secondary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__spacer {
+    flex: 1;
+  }
+
+  &__clock {
+    min-width: 3.5rem;
+    padding: 0 0.5rem;
+    color: $text-muted;
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+.language-switcher {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0 0.25rem;
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 1.5rem;
+    padding: 0;
+    border: 1px solid transparent;
+    border-radius: var(--icon-radius);
+    background: transparent;
+    cursor: pointer;
+    opacity: var(--icon-inactive-opacity);
+    transition:
+      opacity $transition,
+      border-color $transition,
+      background $transition;
+
+    &:hover {
+      opacity: var(--icon-hover-opacity);
+    }
+
+    &--active {
+      opacity: 1;
+      border-color: $secondary;
+      background: color-mix(in srgb, var(--color-secondary) 15%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__icon {
+    width: 1.35rem;
+  }
+}

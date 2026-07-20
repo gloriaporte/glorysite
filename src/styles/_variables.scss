@@ -1,0 +1,22 @@
+// Tokens compartilhados entre temas
+$font-body: "Share Tech Mono", monospace;
+$font-title: $font-body;
+$radius-window: 12px;
+$transition: 0.2s ease;
+
+// Tokens por tema (CSS custom properties — ver themes/)
+$bg-window: var(--color-bg-window);
+$bg-white: var(--color-bg-white);
+
+$primary: var(--color-primary);
+$secondary: var(--color-secondary);
+$tertiary: var(--color-tertiary);
+$quaternary: var(--color-quaternary);
+$quinary: var(--color-quinary);
+
+$text: var(--color-text);
+$text-muted: var(--color-text-muted);
+$text-highlight: var(--color-text-highlight);
+
+$border: var(--color-border);
+$shadow-window: var(--shadow-window);

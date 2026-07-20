@@ -1,0 +1,11 @@
+@use "bubblegum";
+
+// Novos temas:
+// 1. src/assets/themes/<nome>/wallpapers/  — imagens de fundo
+// 2. src/assets/themes/<nome>/icons/       — ícones PNG do desktop
+// 3. src/assets/themes/<nome>/index.js     — registrar com import.meta.glob
+// 4. src/assets/themes/index.js            — importar o tema
+// 5. src/styles/themes/_<nome>.scss        — cores e tokens CSS
+// 6. src/config/themes.js                  — metadados do tema
+//
+// Bandeiras (idioma) ficam em src/icons/flags/ — não mudam por tema

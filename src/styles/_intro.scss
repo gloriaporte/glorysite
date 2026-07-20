@@ -1,0 +1,212 @@
+@use "./variables" as *;
+
+.intro {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 1rem;
+  padding: 2rem;
+  color: $text;
+
+  &__languages {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__language {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2rem;
+    padding: 0;
+    border: 2px solid transparent;
+    border-radius: var(--icon-radius);
+    background: $bg-window;
+    cursor: pointer;
+    opacity: var(--icon-inactive-opacity);
+    transition:
+      opacity $transition,
+      border-color $transition,
+      box-shadow $transition,
+      transform $transition;
+
+    &:hover {
+      opacity: var(--icon-hover-opacity);
+      transform: translateY(-1px);
+    }
+
+    &--active {
+      opacity: 1;
+      border-color: $secondary;
+      box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-secondary) 40%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__flag-icon {
+    display: block;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: $primary;
+    min-height: 1.2em;
+    letter-spacing: 0.04em;
+  }
+
+  p {
+    max-width: 36rem;
+    color: $text-muted;
+    line-height: 1.6;
+    min-height: 3.2em;
+    letter-spacing: 0.02em;
+  }
+
+  .typewriter-cursor {
+    color: $primary;
+    animation: typewriter-blink 0.8s step-end infinite;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+    align-items: stretch;
+    width: 100%;
+    max-width: 28rem;
+    animation: intro-actions-in 0.4s ease forwards;
+  }
+
+  &__accept,
+  &__formal {
+    flex: 1 1 12rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.75rem;
+    padding: 0.75rem 1.25rem;
+    border-radius: $radius-window;
+    font: inherit;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+      background $transition,
+      color $transition,
+      border-color $transition,
+      box-shadow $transition;
+  }
+
+  &__accept {
+    border: 1px solid $primary;
+    background: $primary;
+    color: $text;
+    box-shadow: $shadow-window;
+
+    &:hover {
+      background: $secondary;
+      border-color: $secondary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $secondary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__formal {
+    border: 1px solid $border;
+    background: transparent;
+    color: $text-muted;
+
+    &:hover {
+      color: $text;
+      border-color: $secondary;
+      background: color-mix(in srgb, var(--color-secondary) 12%, transparent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 2px;
+    }
+  }
+}
+
+@keyframes typewriter-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-actions-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem;
+
+  &__label {
+    color: $text-muted;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+  }
+
+  &__track {
+    width: min(20rem, 80vw);
+    height: 0.5rem;
+    border: 1px solid $border;
+    border-radius: 999px;
+    background: $bg-window;
+    overflow: hidden;
+  }
+
+  &__bar {
+    height: 100%;
+    width: 0;
+    border-radius: inherit;
+    background: linear-gradient(90deg, $primary, $secondary);
+    animation: intro-loading-fill linear forwards;
+  }
+}
+
+@keyframes intro-loading-fill {
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+}

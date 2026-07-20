@@ -1,0 +1,27 @@
+.icon {
+  display: block;
+  flex-shrink: 0;
+
+  &--flag {
+    width: 1.75rem;
+    height: auto;
+    border-radius: var(--icon-radius, 6px);
+  }
+
+  &--theme {
+    width: 2.5rem;
+    height: 2.5rem;
+    object-fit: contain;
+    image-rendering: pixelated;
+  }
+}
+
+// Bandeiras — globais, não mudam por tema
+:root {
+  --flag-border: #80539b;
+  --flag-br-green: #009b3a;
+  --flag-br-yellow: #fedf00;
+  --flag-br-blue: #002776;
+  --flag-us-red: #b22234;
+  --flag-us-blue: #3c3b6e;
+}

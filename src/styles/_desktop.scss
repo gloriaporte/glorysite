@@ -1,0 +1,81 @@
+@use "./variables" as *;
+
+.desktop {
+  position: absolute;
+  inset: 0;
+  bottom: var(--taskbar-height, 3rem);
+  background-color: $bg-window;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__icons {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    gap: 1.5rem 0.25rem;
+    height: 100%;
+    padding: 1rem 0.75rem;
+  }
+}
+
+.desktop-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  width: 5.75rem;
+  padding: 0.4rem 0.25rem;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  color: $text;
+  font: inherit;
+  font-size: 0.75rem;
+  line-height: 1.2;
+  cursor: pointer;
+  text-align: center;
+  transition:
+    background $transition,
+    border-color $transition,
+    outline-color $transition;
+
+  &__image-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+  }
+
+  &__image {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
+  &__label {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-width: 100%;
+    text-shadow:
+      0 1px 2px rgba(0, 0, 0, 0.9),
+      0 0 6px rgba(0, 0, 0, 0.6);
+  }
+
+  &:hover {
+    background: color-mix(in srgb, var(--color-primary) 28%, transparent);
+    border-color: color-mix(in srgb, var(--color-secondary) 45%, transparent);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $primary;
+    outline-offset: 2px;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+}

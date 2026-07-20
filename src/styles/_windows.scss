@@ -1,0 +1,117 @@
+@use "./variables" as *;
+
+.window-manager {
+  position: absolute;
+  inset: 0;
+  bottom: var(--taskbar-height, 3rem);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.window {
+  position: absolute;
+  width: min(28rem, calc(100vw - 2rem));
+  min-height: 14rem;
+  max-height: calc(100vh - var(--taskbar-height, 3rem) - 2rem);
+  padding: 4px;
+  pointer-events: auto;
+  border: 2px solid color-mix(in srgb, var(--color-secondary) 70%, var(--color-primary));
+  border-radius: $radius-window;
+  background: linear-gradient(
+    160deg,
+    color-mix(in srgb, var(--color-secondary) 85%, white) 0%,
+    var(--color-primary) 55%,
+    color-mix(in srgb, var(--color-primary) 80%, black) 100%
+  );
+  box-shadow:
+    $shadow-window,
+    inset 0 1px 0 color-mix(in srgb, white 35%, transparent);
+
+  &__frame {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: calc(14rem - 8px);
+    max-height: calc(100vh - var(--taskbar-height, 3rem) - 2rem - 8px);
+    border: 2px solid color-mix(in srgb, var(--color-primary) 55%, var(--color-border));
+    border-radius: calc($radius-window - 4px);
+    overflow: hidden;
+    background: $bg-white;
+    color: $text-highlight;
+  }
+
+  &__body {
+    flex: 1;
+    overflow: auto;
+    padding: 1rem 1.25rem;
+    background: $bg-white;
+  }
+}
+
+.window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  min-height: 2.5rem;
+  padding: 0 0.5rem 0 0.85rem;
+  border-bottom: 2px solid color-mix(in srgb, var(--color-primary) 40%, var(--color-border));
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-secondary) 55%, var(--color-bg-white)) 0%,
+    color-mix(in srgb, var(--color-primary) 35%, var(--color-bg-white)) 100%
+  );
+  color: $text-highlight;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+
+  &:active {
+    cursor: grabbing;
+  }
+
+  &__title {
+    flex: 1;
+    overflow: hidden;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__close {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.75rem;
+    height: 1.75rem;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--color-primary) 50%, var(--color-border));
+    border-radius: 6px;
+    background: color-mix(in srgb, var(--color-bg-white) 70%, transparent);
+    color: $text-highlight;
+    font: inherit;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    transition:
+      background $transition,
+      color $transition,
+      border-color $transition;
+
+    &:hover {
+      border-color: var(--color-quinary);
+      background: var(--color-quinary);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $primary;
+      outline-offset: 1px;
+    }
+  }
+}
+
+.window-section {
+  color: color-mix(in srgb, var(--color-text-highlight) 75%, var(--color-text-muted));
+  line-height: 1.6;
+}
