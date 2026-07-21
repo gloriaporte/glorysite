@@ -5,6 +5,7 @@ body,
 #root {
   height: 100%;
   min-height: 100vh;
+  cursor: var(--cursor-default, default);
 }
 
 body {
@@ -12,4 +13,26 @@ body {
   background: $bg-window;
   color: $text;
   overflow: hidden;
+}
+
+a,
+button,
+[role='button'],
+summary,
+label[for],
+select,
+.desktop-icon {
+  cursor: var(--cursor-pointer, pointer);
+}
+
+input,
+textarea,
+[contenteditable='true'] {
+  cursor: var(--cursor-text, text);
+}
+
+[aria-busy='true'],
+.is-loading,
+.cursor-wait {
+  cursor: var(--cursor-wait, wait);
 }

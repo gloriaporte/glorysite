@@ -32,7 +32,7 @@
     font: inherit;
     font-size: 0.9rem;
     letter-spacing: 0.02em;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     transition:
       background $transition,
       border-color $transition,
@@ -80,7 +80,7 @@
     border: 1px solid transparent;
     border-radius: var(--icon-radius);
     background: transparent;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     opacity: var(--icon-inactive-opacity);
     transition:
       opacity $transition,

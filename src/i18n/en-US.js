@@ -35,6 +35,10 @@ export default {
     close: "Close",
   },
 
+  blog: {
+    empty: "No posts here yet.",
+  },
+
   musicplayer: {
     loading: "Loading...",
     prev: "Previous",

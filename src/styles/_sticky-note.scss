@@ -1,4 +1,5 @@
 @use "./variables" as *;
+@use "./mixins" as *;
 
 .sticky-note {
   position: absolute;
@@ -59,7 +60,7 @@
     font-family: $font-body, sans-serif;
     font-size: 1.15rem;
     line-height: 1;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     transition:
       background $transition,
       color $transition;
@@ -79,6 +80,13 @@
     flex: 1;
     overflow: auto;
     min-height: 0;
+    @include pretty-scrollbar(
+      $size: 0.55rem,
+      $track: color-mix(in srgb, var(--color-sticky-note, #fff59d) 80%, white),
+      $thumb: color-mix(in srgb, var(--color-sticky-note, #fff59d) 55%, #6e4f96),
+      $thumb-hover: var(--color-quinary),
+      $edge: color-mix(in srgb, #6e4f96 50%, transparent)
+    );
   }
 }
 

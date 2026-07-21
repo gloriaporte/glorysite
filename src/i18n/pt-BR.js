@@ -35,6 +35,10 @@ export default {
     close: "Fechar",
   },
 
+  blog: {
+    empty: "Nenhuma publicação por aqui ainda.",
+  },
+
   musicplayer: {
     loading: "Carregando...",
     prev: "Retroceder",
@@ -45,21 +49,14 @@ export default {
 
   todolist: {
     items: [
-      { label: "ReactJS criado com Vite", done: true },
-      { label: "Estrutura de pastas organizada", done: true },
-      { label: "Tela intro CRT pronta", done: false },
+      { label: "Tela intro CRT", done: false },
       { label: "Link para portfólio formal", done: false },
-      { label: "Bandeiras PT/EN funcionando", done: true },
-      { label: "Traduções separadas", done: true },
-      { label: "LocalStorage funcionando", done: true },
-      { label: "Troca de idioma em qualquer momento", done: true },
-      { label: "Desktop retrô pronto", done: false },
-      { label: "Ícones das seções", done: true },
+      { label: "Bandeiras PT/EN", done: true },
       { label: "Janelas abrindo/fechando", done: true },
       { label: "Taskbar", done: false },
       { label: "Versão mobile adaptada", done: false },
       { label: "Imagens responsivas", done: false },
-      { label: "MP3 Player/Walkman?", done: false },
+      { label: "MP3 Player", done: true },
       { label: "Sobre mim", done: false },
       { label: "Experiência", done: false },
       { label: "Estudos", done: false },
@@ -67,6 +64,7 @@ export default {
       { label: "Stacks", done: false },
       { label: "Contato", done: false },
       { label: "Currículo", done: false },
+      { label: "Mudar tema", done: false },
     ],
   },
 };

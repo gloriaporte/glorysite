@@ -105,6 +105,12 @@ function MusicPlayerWindow() {
 
   return (
     <>
+      <div
+        className="discman-widget__state"
+        data-playing={playing ? 'true' : 'false'}
+        hidden
+      />
+
       <div className="discman-widget__player" aria-hidden="true">
         <div id={playerHostId} />
       </div>

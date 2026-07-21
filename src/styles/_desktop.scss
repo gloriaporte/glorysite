@@ -34,7 +34,7 @@
   font: inherit;
   font-size: 0.75rem;
   line-height: 1.2;
-  cursor: pointer;
+  cursor: var(--cursor-pointer, pointer);
   text-align: center;
   transition:
     background $transition,
