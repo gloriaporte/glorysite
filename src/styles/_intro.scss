@@ -27,7 +27,7 @@
     border: 2px solid transparent;
     border-radius: var(--icon-radius);
     background: $bg-window;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     opacity: var(--icon-inactive-opacity);
     transition:
       opacity $transition,
@@ -101,7 +101,7 @@
     letter-spacing: 0.02em;
     text-align: center;
     text-decoration: none;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     transition:
       background $transition,
       color $transition,

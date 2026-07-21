@@ -1,12 +1,35 @@
 import { useCallback, useRef, useState } from 'react'
 
-const BASE_X = 72
 const BASE_Y = 48
-const CASCADE = 28
+const CASCADE = 20
 const STICKY_WIDTH = 272
 const DISCMAN_WIDTH = 352
 const EDGE_MARGIN = 24
 const TASKBAR_HEIGHT = 48
+const REM = 16
+
+function getStandardWindowSize() {
+  const width = Math.min(
+    window.innerWidth - EDGE_MARGIN * 2,
+    Math.max(28 * REM, window.innerWidth - 40 * REM),
+  )
+  const height = Math.min(
+    window.innerHeight - TASKBAR_HEIGHT - EDGE_MARGIN * 2,
+    22 * REM,
+  )
+
+  return { width, height }
+}
+
+function getCenteredPosition(index = 0) {
+  const { width, height } = getStandardWindowSize()
+  const deskHeight = window.innerHeight - TASKBAR_HEIGHT
+
+  return {
+    x: Math.max(EDGE_MARGIN, (window.innerWidth - width) / 2) + index * CASCADE,
+    y: Math.max(EDGE_MARGIN, (deskHeight - height) / 2) + index * CASCADE,
+  }
+}
 
 function getDefaultPosition(id, index) {
   if (id === 'todolist') {
@@ -26,10 +49,7 @@ function getDefaultPosition(id, index) {
     }
   }
 
-  return {
-    x: BASE_X + index * CASCADE,
-    y: BASE_Y + index * CASCADE,
-  }
+  return getCenteredPosition(index)
 }
 
 function createInitialWindows() {

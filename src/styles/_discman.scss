@@ -5,12 +5,18 @@
   width: min(22rem, calc(100vw - 2rem));
   pointer-events: auto;
 
+  /* Quando a música toca, o shell “balança” */
+  &:has(.discman-widget__state[data-playing='true']) .discman-widget__shell {
+    animation: discman-groove 0.85s ease-in-out infinite;
+  }
+
   &__shell {
     position: relative;
     width: 100%;
     cursor: grab;
     user-select: none;
     touch-action: none;
+    transform-origin: 50% 85%;
 
     &:active {
       cursor: grabbing;
@@ -28,7 +34,7 @@
   /* Tela preta do discman — só o nome da faixa */
   &__screen {
     position: absolute;
-    left: 28%;
+    left: 22%;
     top: 47%;
     z-index: 1;
     width: 40%;
@@ -40,6 +46,7 @@
     border-radius: 2px;
     background: #0a0a0a;
     pointer-events: none;
+    z-index: -20;
   }
 
   &__track {
@@ -47,7 +54,7 @@
     padding: 0.15rem 0.3rem;
     color: #7dff9a;
     font-family: $font-body, monospace;
-    font-size: 0.62rem;
+    font-size: 0.52rem;
     font-weight: 700;
     letter-spacing: 0.02em;
     line-height: 1.25;
@@ -98,7 +105,7 @@
     border-radius: 0.45rem;
     background: transparent;
     color: #1a1028;
-    cursor: pointer;
+    cursor: var(--cursor-pointer, pointer);
     pointer-events: auto;
     transition: color $transition, transform $transition;
 
@@ -111,7 +118,7 @@
 
     &:hover:not(:disabled) {
       color: #4a2f73;
-      transform: scale(1.06);
+      transform: scale(1.3);
     }
 
     &:active:not(:disabled) {
@@ -120,7 +127,7 @@
 
     &:disabled {
       opacity: 0.45;
-      cursor: default;
+      cursor: var(--cursor-default, default);
     }
 
     &:focus-visible {
@@ -129,20 +136,22 @@
     }
 
     &--prev {
-      left: 29%;
+      top: 74%;
+      left: 22%;
     }
 
     &--playpause {
-      left: 41.5%;
+      left: 31.5%;
     }
 
     &--next {
-      left: 54%;
+      top: 74%;
+      left: 41.5%;
     }
 
     &--power {
-      top: 76%;
-      left: 68%;
+      top: 66%;
+      left: 62.5%;
       width: 9%;
       height: 9%;
       border-radius: 50%;
@@ -153,5 +162,21 @@
         height: 52%;
       }
     }
+  }
+}
+
+@keyframes discman-groove {
+  100% {
+    transform: rotate(-1.2deg) translateY(0);
+  }
+
+  50% {
+    transform: rotate(5deg) translateY(-10px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .discman-widget:has(.discman-widget__state[data-playing='true']) .discman-widget__shell {
+    animation: none;
   }
 }

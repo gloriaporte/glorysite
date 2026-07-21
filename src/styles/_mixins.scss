@@ -6,3 +6,49 @@
     outline-offset: 2px;
   }
 }
+
+@mixin pretty-scrollbar(
+  $size: 0.7rem,
+  $track: var(--color-primary),
+  $thumb: var(--color-tertiary),
+  $thumb-hover: var(--color-tertiary),
+  $edge: var(--color-bg-window)
+) {
+  scrollbar-width: thin;
+  scrollbar-color: #{$thumb} #{$track};
+
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $track;
+    border-left: 1px solid $edge;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(
+      180deg,
+      color-mix(in srgb, $thumb 70%, white) 0%,
+      $thumb 45%,
+      color-mix(in srgb, $thumb 75%, black) 100%
+    );
+    border: 1px solid $edge;
+    border-radius: 2px;
+    box-shadow: inset 1px 1px 0 color-mix(in srgb, white 45%, transparent);
+
+    &:hover {
+      background: $thumb-hover;
+    }
+
+    &:active {
+      background: color-mix(in srgb, $thumb-hover 80%, black);
+    }
+  }
+
+  &::-webkit-scrollbar-corner {
+    background: $track;
+  }
+}
+

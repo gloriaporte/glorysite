@@ -1,3 +1,5 @@
+import { applyThemeCursors } from '../assets/themes'
+
 export const THEME_STORAGE_KEY = 'portfolio-theme'
 
 export const themes = {
@@ -27,6 +29,7 @@ export function applyTheme(themeId) {
       : DEFAULT_THEME_ID
 
   document.documentElement.dataset.theme = id
+  applyThemeCursors(id)
 
   if (!FORCE_DEFAULT_THEME) {
     localStorage.setItem(THEME_STORAGE_KEY, id)

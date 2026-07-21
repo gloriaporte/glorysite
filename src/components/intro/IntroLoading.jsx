@@ -12,7 +12,12 @@ function IntroLoading({ onComplete }) {
   }, [onComplete])
 
   return (
-    <div className="intro-loading" role="status" aria-live="polite">
+    <div
+      className="intro-loading cursor-wait"
+      role="status"
+      aria-busy="true"
+      aria-live="polite"
+    >
       <p className="intro-loading__label">{t.intro.loading}</p>
       <div className="intro-loading__track">
         <div
