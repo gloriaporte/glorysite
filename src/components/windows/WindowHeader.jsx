@@ -14,7 +14,7 @@ function WindowHeader({ title, closeLabel, onClose, originX, originY, dragHandle
         onPointerDown={(event) => event.stopPropagation()}
         aria-label={closeLabel}
       >
-        ×
+        X
       </button>
     </header>
   )

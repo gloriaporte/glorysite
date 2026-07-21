@@ -34,4 +34,36 @@ export default {
   windows: {
     close: "Close",
   },
+
+  musicplayer: {
+    loading: "Loading...",
+    prev: "Previous",
+    play: "Play",
+    pause: "Pause",
+    next: "Next",
+  },
+
+  todolist: {
+    items: [
+      { label: "React + Vite project setup", done: true },
+      { label: "Organized folder structure", done: true },
+      { label: "CRT intro screen ready", done: false },
+      { label: "Link to formal portfolio", done: false },
+      { label: "PT/EN flags working", done: false },
+      { label: "Separate translations", done: true },
+      { label: "LocalStorage working", done: false },
+      { label: "Language switch anytime", done: false },
+      { label: "Retro desktop ready", done: false },
+      { label: "Section icons", done: false },
+      { label: "Windows open/close", done: false },
+      { label: "Taskbar", done: false },
+      { label: "Mobile-adapted version", done: false },
+      { label: "Visible focus", done: false },
+      { label: "Contrast validated", done: false },
+      { label: "prefers-reduced-motion", done: false },
+      { label: "Responsive images", done: false },
+      { label: "Lighthouse", done: false },
+      { label: "MP3 Player/Walkman?", done: false },
+    ],
+  },
 };

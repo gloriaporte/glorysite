@@ -15,7 +15,15 @@
   --color-text-highlight: #000000;
 
   --color-border: #3d3d3d;
-  --shadow-window: 0 8px 24px rgba(0, 0, 0, 0.856);
+  --shadow-window: 4px 4px 0 rgba(0, 0, 0, 0.45);
+  --color-sticky-note: #ddb8e9;
+
+  --color-window-frame: var(--color-quinary);
+  --color-window-title: var(--color-secondary);
+  --color-window-body: var(--color-bg-white);
+  --color-window-bevel-light: #efe2f7;
+  --color-window-bevel-dark: #6e4f96;
+  --color-window-title-text: #6e4f96;
 
   --icon-radius: 6px;
   --icon-inactive-opacity: 0.55;
