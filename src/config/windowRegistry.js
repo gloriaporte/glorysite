@@ -15,3 +15,9 @@ export const windowRegistry = {
   education: EducationWindow,
   stacks: SkillsWindow,
 }
+
+/** Chrome variant per window id. Default is the OS-style `window`. */
+export const windowChrome = {
+  todolist: 'sticky',
+  musicplayer: 'discman',
+}
